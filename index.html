@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Sorting Visualizer</title>
+  
+
+
+</head>
+
+<body>
+
+  <div style="margin: 0;">
+    <h1 style="color: #04AA6D;">  Sorting Algorithm Visualizer </h1>
+    <h2>  Ismail Ramzan 20I-0941 </h2>
+    <h2>  Musaab Imaran 20I-1794 </h2>
+    <h2>  Muhammad Usman Shahid 20I-1797</h2>
+
+    <h2 id="visualize"> <a href="#configure"> <p> Visualize </p> </a></h2>
+
+    <div class="buttons_container" id="configure" style="margin: 3%;">
+
+      <h1> Configuration </h1>
+      <select name="" id="speed">
+        <option value="500">Slow</option>
+        <option value="250">Medium</option>
+        <option value="100">Fast</option>
+      </select>
+
+      <p style="margin-left: 90%;">Size: <span id="size_value"></span></p>
+      <input type="range" min="10" max="1000" value="50" class="slider" id="arraySize" style="margin-left: 70%;">
+      
+
+      <a href="#sortStarted" > <button class = "btn" type="button" id="sort_btn" onclick="startSort() ; disablPopulate()" disabled> Sort</button> </a>
+      <button class = "btn" id="populate_btn" onclick="Populate() ; enableSortbutton()">Populate</button>
+      <a href="#configure" ></a><button class = "btn" id="stop_btn" onclick="resetDefaults()" disabled>Restart</button> </a>
+  
+    </div>
+
+    <div id="sortStarted">
+
+      <div class="row">
+        <div class="column">
+          <canvas id="insertion_sort"></canvas>
+        </div>
+
+        <div class="column">
+          <canvas id="bubble_sort"></canvas>
+        </div>
+
+        <div class="column">
+          <canvas id="selection_sort"></canvas>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="column">
+          <canvas id="heap_sort"></canvas>
+        </div>
+
+        <div class="column">
+          <canvas id="quick_sort"></canvas>
+        </div>
+
+        <div class="column">
+          <canvas id="merge_sort"></canvas>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="column">
+          <canvas id="radix_sort"></canvas>
+        </div>
+
+        <div class="column">
+          <canvas id="count_sort"></canvas>
+        </div>
+
+        <div class="column">
+          <canvas id="bucket_sort"></canvas>
+        </div>
+
+      </div>
+
+    </div>
+  
+  </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
+    <script src="insertionsort.js"></script>
+    <script src="heap.js"></script>
+    <script src="quicksort.js"></script>
+    <script src="bubblesort.js"></script>
+    <script src="selectionsort.js"></script>
+    <script src="merge.js"></script>
+    <script src="count.js"></script>
+    <script src="radix_sort.js"></script>
+    <script src="bucket_sort.js"></script>
+    <script>
+      
+      function enableSortbutton() {
+            document.getElementById("sort_btn").disabled = false;
+      }
+
+      function disablPopulate() {
+            document.getElementById("populate_btn").disabled = true;
+            document.getElementById("sort_btn").disabled = true;
+            document.getElementById("arraySize").disabled = true;
+      }
+
+      function startSort ()
+      {
+        bucketSort(inputArr_buc, inputArr_buc.length);
+        countingSort(inputArr_c)
+        HeapSort(Arr2); 
+        InsertionSort(inputArr1);
+        BubbleSort(Arr4);
+        mergeSort(inputArr_m)
+        QuickSort(Arr3, 0, Arr3.length - 1);
+        radixSort(rad); 
+        selectionSort(Arr5);
+
+        document.getElementById("stop_btn").disabled = false;
+
+      }
+
+      function resetDefaults ()
+      {
+        location.reload(true);
+      }
+      
+      function Populate ()
+      {
+        // updating the values
+        inputArr_c.length = 0;
+        Arr2.length = 0;
+        inputArr1.length = 0;
+        Arr4.length = 0;
+        inputArr_buc.length = 0;
+        inputArr_m.length = 0;
+        Arr3.length = 0;
+        rad.length = 0;
+        Arr5.length = 0;
+
+        // will assign random array to it
+        size = sliderInput;
+        const random_array = generateRandomArray(size);
+
+        assign(inputArr_c, random_array , size)
+        myChart_c.data.datasets[0].data = inputArr_c
+        myChart_c.update()
+
+        assign(Arr2, random_array , size)
+        myChart2.data.datasets[0].data = Arr2
+        myChart2.update()
+
+        assign(inputArr1,random_array , size)
+        myChart1.data.datasets[0].data = inputArr1
+        myChart1.update()
+
+        assign(Arr4, random_array , size)
+        myChart4.data.datasets[0].data = Arr4
+        myChart4.update()
+
+        assign(inputArr_buc, random_array , size)
+        bucket.data.datasets[0].data = inputArr_buc
+        bucket.update()
+
+        assign(inputArr_m, random_array , size)
+        myChart_m.data.datasets[0].data = inputArr_m
+        myChart_m.update()
+
+        assign(Arr3, random_array , size)
+        myChart3.data.datasets[0].data = Arr3
+        myChart3.update()
+
+        assign(rad, random_array , size)
+        radixChart.data.datasets[0].data = rad
+        radixChart.update()
+
+        assign(Arr5, random_array , size)
+        myChart5.data.datasets[0].data = Arr5
+        myChart5.update()
+      }
+
+    </script>
+</body>
+
+</html>

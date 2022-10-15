@@ -1,0 +1,148 @@
+body, button
+{
+    background-color: #ece7eb;
+    font-family: cursive;
+    margin: 0%;
+}
+
+h1{
+    margin: 0%;
+    padding: 3%;
+}
+
+h1, h2{
+    height:200px;
+    font-size: 400%;
+    text-align: center;
+    color: #a14084;
+    animation: color-animate 5s infinite;
+}
+
+h2{
+    height:50px;
+    font-size: 200%; 
+    animation: none;
+}
+
+
+
+#visualize, a:visited {
+    height:200px;
+    font-size: 400%;
+    text-align: center;
+    color: #04AA6D;
+}
+
+a > p{
+    animation: color-animate 5s infinite;
+}
+
+button, select
+{
+    width: 200px;
+    height: 30px;
+    background-color: #a14084;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition:  0.2s ease-in-out;
+    
+}
+.buttons_container{
+    border: 5px dotted #04AA6D;
+    padding: 5%;
+}
+
+.buttons_container > h1{
+    color: #04AA6D;
+    font-size: 300%;
+    height:50px;
+}
+button:hover
+{
+    background-color: #971c60;
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #40A15D;
+  background-color: #cc84b6f2;
+  color: #cfb8b8;
+  cursor: not-allowed;
+}
+
+input:disabled,
+input[disabled]{
+  border: 1px solid #40A15D;
+  background-color: #cc84b6f2;
+  color: #cfb8b8;
+  cursor: not-allowed;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 28%;
+    height: 15px;
+    border-radius: 5px;
+    background: #a14084;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #40A15D;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+}
+
+.row
+{
+    width: 95%;
+    margin: auto;
+    display: flex;
+}
+
+.column{
+    width:  33.3%;
+    height: 250px;
+    /* padding: 3px; */
+}
+
+a{
+    text-decoration-line: none;
+}
+
+a:hover > p{
+    color: #971c60;
+    font-size: 120%
+
+}
+
+@keyframes color-animate {
+    10%  { color: #97901C; }
+    20%  { color: #C2247B; }
+    40%  { color: #60971C; }
+    60%  { color: #1C9753; }
+    100% { color: #1C6097; }
+}
